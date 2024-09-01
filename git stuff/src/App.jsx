@@ -1,35 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Container, Box, TextField, Button, Typography, Divider } from '@mui/material';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Login() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Container maxWidth="xs">
+      <Box 
+        sx={{ 
+          mt: 8, 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center' 
+        }}
+      >
+        <Typography variant="h4" gutterBottom>
+          Sign In
+        </Typography>
+
+        <TextField 
+          margin="normal" 
+          required 
+          fullWidth 
+          id="email" 
+          label="Email Address" 
+          name="email" 
+          autoComplete="email" 
+          autoFocus 
+        />
+        
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+
+        <Button 
+          fullWidth 
+          variant="contained" 
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Sign In
+        </Button>
+
+        <Divider sx={{ width: '100%', my: 2 }} />
+
+        <Typography variant="body1">
+          Or sign in with
+        </Typography>
+
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', mt: 2 }}>
+          <Button 
+            variant="outlined" 
+            sx={{ width: '30%' }}
+          >
+            Google
+          </Button>
+          
+          <Button 
+            variant="outlined" 
+            sx={{ width: '30%' }}
+          >
+            Facebook
+          </Button>
+          
+          <Button 
+            variant="outlined" 
+            sx={{ width: '30%' }}
+          >
+            GitHub
+          </Button>
+        </Box>
+      </Box>
+    </Container>
+  );
 }
 
-export default App
+export default Login;
